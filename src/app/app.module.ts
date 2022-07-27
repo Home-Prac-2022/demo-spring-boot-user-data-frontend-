@@ -7,22 +7,27 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { LoginComponent } from './login/login.component';
 import {RouterModule} from "@angular/router";
+import {HttpClientModule} from "@angular/common/http";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     RouterModule.forRoot([
-      {path:'',component:SignUpComponent},
-      {path:'signup',component:SignUpComponent},
-      {path:'login',component:LoginComponent},
+      {path: '', component: SignUpComponent},
+      {path: 'signup', component: SignUpComponent},
+      {path: 'login', component: LoginComponent},
     ]),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
