@@ -19,7 +19,7 @@ export class AuthService {
   // Sign-up
   signUp(user: User): Observable<any> {
     let api = `${this.endpoint}/save`;
-    return this.http.post(api, user).pipe(catchError(this.handleError));
+    return this.http.post(api, user);
   }
   // Sign-in
   signIn(user: User) {

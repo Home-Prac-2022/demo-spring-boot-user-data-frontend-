@@ -25,7 +25,6 @@ import {SignupComponent} from "./sign-up/sign-up.component";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot([]),
     ReactiveFormsModule,
     FormsModule
   ],
