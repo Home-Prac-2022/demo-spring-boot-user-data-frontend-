@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: 'root'
 })
 export class UserDataService {
-  url = "http://localhost:8080/user"
+  url = "http://localhost:8080/user/save"
 
   constructor(private http:HttpClient) { }
   saveUserData(data:any){
@@ -13,3 +13,4 @@ export class UserDataService {
     return this.http.post(this.url,data)
   }
 }
+

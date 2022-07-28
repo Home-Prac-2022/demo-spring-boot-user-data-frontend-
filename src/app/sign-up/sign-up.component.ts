@@ -13,11 +13,10 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  addData = new FormGroup({
+    addData = new FormGroup({
     username: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
-
   });
 
   saveData() {
@@ -25,4 +24,5 @@ export class SignUpComponent implements OnInit {
       console.log(details)
     });
   }
+
 }
