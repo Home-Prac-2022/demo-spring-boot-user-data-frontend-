@@ -12,19 +12,19 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  endpoint: string = 'http://localhost:4000/api';
+  endpoint: string = 'http://localhost:8080/api/v1/users';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   currentUser = {};
   constructor(private http: HttpClient, public router: Router) {}
   // Sign-up
   signUp(user: User): Observable<any> {
-    let api = `${this.endpoint}/register-user`;
+    let api = `${this.endpoint}/save`;
     return this.http.post(api, user).pipe(catchError(this.handleError));
   }
   // Sign-in
   signIn(user: User) {
     return this.http
-      .post<any>(`${this.endpoint}/signin`, user)
+      .post<any>(`${this.endpoint}/login`, user)
       .subscribe((res: any) => {
         localStorage.setItem('access_token', res.token);
         this.getUserProfile(res._id).subscribe((res) => {
