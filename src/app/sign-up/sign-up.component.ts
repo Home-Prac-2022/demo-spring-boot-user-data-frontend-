@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { AuthService} from "../shared/auth.service";
 import { Router } from '@angular/router';
+import {AuthService} from "../shared/auth.service";
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  templateUrl: './sign-up.component.html',
+  styleUrls: ['./sign-up.component.scss'],
 })
-export class SignUpComponent implements OnInit {
+export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   constructor(
     public fb: FormBuilder,
@@ -17,6 +17,7 @@ export class SignUpComponent implements OnInit {
     this.signupForm = this.fb.group({
       name: [''],
       email: [''],
+      mobile: [''],
       password: [''],
     });
   }
