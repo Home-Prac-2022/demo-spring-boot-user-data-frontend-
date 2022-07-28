@@ -1,28 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,FormControl} from "@angular/forms";
-import {UserDataService} from "../service/user-data.service";
-
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService} from "../shared/auth.service";
+import { Router } from '@angular/router';
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-
-  constructor(private user:UserDataService) {}
-
-  ngOnInit(): void {}
-
-    addData = new FormGroup({
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-  });
-
-  saveData() {
-    this.user.saveUserData(this.addData.value).subscribe((details)=>{
-      console.log(details)
+  signupForm: FormGroup;
+  constructor(
+    public fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router
+  ) {
+    this.signupForm = this.fb.group({
+      name: [''],
+      email: [''],
+      password: [''],
     });
   }
-
+  ngOnInit() {}
+  registerUser() {
+    this.authService.signUp(this.signupForm.value).subscribe((res) => {
+      if (res.result) {
+        this.signupForm.reset();
+        this.router.navigate(['log-in']);
+      }
+    });
+  }
 }
