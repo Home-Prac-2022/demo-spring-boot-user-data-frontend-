@@ -1,4 +1,5 @@
 # Front end for User Authenticaton Application
+Develop through https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
